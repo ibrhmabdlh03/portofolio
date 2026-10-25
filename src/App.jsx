@@ -1,27 +1,32 @@
-// src/App.jsx
-import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Experience from './components/Experience';
-import Projects from './components/Projects';
-import Skills from './components/Skills';
-// import Courses from './components/Courses';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Hero from './components/Hero'
+import Navbar from './components/Navbar'
+import {
+  About,
+  Contact,
+  Experience,
+  Footer,
+  Projects,
+  Recognition,
+  SkillsEducation,
+  Stats,
+} from './components/Sections'
 
-function App() {
+export default function App() {
   return (
-    <main className="bg-gray-900 text-gray-200 font-sans tracking-wide">
+    <>
       <Navbar />
-      <Hero />
-      <Experience />
-      <Projects />
-      <Skills />
-      {/* <Courses /> */}
-      <Contact />
+      <main>
+        <Hero />
+        <Stats />
+        <div style={{ height: 'clamp(64px, 8vw, 104px)' }} />
+        <About />
+        <Experience />
+        <Projects />
+        <Recognition />
+        <SkillsEducation />
+        <Contact />
+      </main>
       <Footer />
-    </main>
-  );
+    </>
+  )
 }
-
-export default App;

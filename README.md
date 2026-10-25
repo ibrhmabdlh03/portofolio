@@ -1,14 +1,45 @@
-# React + Vite
+# Portfolio — Ibrahim Abdullah Azzam
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Website portofolio bergaya *company profile* (terinspirasi tampilan about.meta.com): putih bersih, aksen biru, kartu membulat, ilustrasi topologi jaringan.
 
-Currently, two official plugins are available:
+- **Stack**: React 19 + Vite 7, CSS biasa (tanpa framework CSS), `react-icons`.
+- **Isi**: semua teks ada di [`src/data.js`](src/data.js). Ubah di sana saja.
+- **Proyek confidential**: set `confidential: true` → tanpa tautan, tanpa nama klien, ilustrasi diburamkan + label "Confidential".
+- **CV**: taruh PDF di `public/` lalu isi `profile.resume = '/nama-file.pdf'` agar tombol *Download CV* muncul.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Jalankan lokal
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # hasil di dist/
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## CI/CD ke Vercel (gratis, Hobby plan)
 
-# portofolio
+Workflow: [`.github/workflows/ci-cd.yml`](.github/workflows/ci-cd.yml)
+
+| Event | Yang terjadi |
+|---|---|
+| Push / PR | `npm ci` → `npm run lint` → `npm run build` |
+| Pull request | Deploy **Preview** ke Vercel, link dikomentari di PR |
+| Push ke `main` | Deploy **Production** ke Vercel |
+
+### Setup sekali saja
+
+1. Buat akun di https://vercel.com (login pakai GitHub).
+2. Buat token: **Vercel → Account Settings → Tokens → Create** → salin.
+3. Hubungkan project (di laptop, dari folder repo ini):
+   ```bash
+   npx vercel login
+   npx vercel link        # pilih "create new project", nama mis. ibrahim-azzam
+   cat .vercel/project.json   # berisi orgId dan projectId
+   ```
+4. Di GitHub: **repo → Settings → Secrets and variables → Actions → New repository secret**:
+   - `VERCEL_TOKEN` = token langkah 2
+   - `VERCEL_ORG_ID` = `orgId`
+   - `VERCEL_PROJECT_ID` = `projectId`
+5. **Matikan auto-deploy bawaan Vercel** agar tidak deploy dua kali: Vercel → Project → Settings → Git → *Disconnect* repo (deploy sepenuhnya lewat GitHub Actions).
+6. Jalankan ulang: **Actions → CI-CD → Run workflow** (atau push commit baru).
+
+Folder `.vercel/` sudah di-`.gitignore`.
