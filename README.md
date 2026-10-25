@@ -15,31 +15,16 @@ npm run dev      # http://localhost:5173
 npm run build    # hasil di dist/
 ```
 
-## CI/CD ke Vercel (gratis, Hobby plan)
+## CI/CD
 
-Workflow: [`.github/workflows/ci-cd.yml`](.github/workflows/ci-cd.yml)
+Live: **https://ibrahim-azzam.vercel.app** (Vercel project `ibrahim-azzam`, Hobby plan, gratis).
 
-| Event | Yang terjadi |
-|---|---|
-| Push / PR | `npm ci` → `npm run lint` → `npm run build` |
-| Pull request | Deploy **Preview** ke Vercel, link dikomentari di PR |
-| Push ke `main` | Deploy **Production** ke Vercel |
+| Event | CI (GitHub Actions, [`ci-cd.yml`](.github/workflows/ci-cd.yml)) | CD (Vercel Git Integration) |
+|---|---|---|
+| Push ke `main` | lint + build | deploy **Production** |
+| Pull request | lint + build | deploy **Preview**, link dikomentari di PR |
 
-### Setup sekali saja
+Tidak perlu secret apa pun: repo GitHub sudah tersambung ke project Vercel.
+Kalau build gagal, Vercel tidak mengganti versi production yang sedang live.
 
-1. Buat akun di https://vercel.com (login pakai GitHub).
-2. Buat token: **Vercel → Account Settings → Tokens → Create** → salin.
-3. Hubungkan project (di laptop, dari folder repo ini):
-   ```bash
-   npx vercel login
-   npx vercel link        # pilih "create new project", nama mis. ibrahim-azzam
-   cat .vercel/project.json   # berisi orgId dan projectId
-   ```
-4. Di GitHub: **repo → Settings → Secrets and variables → Actions → New repository secret**:
-   - `VERCEL_TOKEN` = token langkah 2
-   - `VERCEL_ORG_ID` = `orgId`
-   - `VERCEL_PROJECT_ID` = `projectId`
-5. **Matikan auto-deploy bawaan Vercel** agar tidak deploy dua kali: Vercel → Project → Settings → Git → *Disconnect* repo (deploy sepenuhnya lewat GitHub Actions).
-6. Jalankan ulang: **Actions → CI-CD → Run workflow** (atau push commit baru).
-
-Folder `.vercel/` sudah di-`.gitignore`.
+Deploy manual dari laptop (jarang perlu): `vercel deploy --prod`

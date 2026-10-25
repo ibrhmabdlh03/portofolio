@@ -1,9 +1,8 @@
-# CI: setiap push & pull request -> lint + build.
-# CD: pull request -> deploy Preview ke Vercel (link dikomentari di PR),
-#     push ke main  -> deploy Production ke Vercel.
-# Secrets yang dibutuhkan (Settings > Secrets and variables > Actions):
-#   VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID  -> lihat README.md
-name: CI-CD
+# CI : setiap push & pull request -> lint + build (gagal = merah di GitHub).
+# CD : ditangani Vercel Git Integration (repo sudah tersambung ke project "ibrahim-azzam"):
+#      push ke main  -> deploy Production  (https://ibrahim-azzam.vercel.app)
+#      pull request  -> deploy Preview (link otomatis dikomentari Vercel di PR)
+name: CI
 
 on:
   push:
@@ -12,12 +11,8 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: vercel-${{ github.ref }}
+  group: ci-${{ github.ref }}
   cancel-in-progress: true
-
-env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 jobs:
   build:
@@ -33,59 +28,3 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run build
-
-  deploy:
-    name: Deploy to Vercel (${{ github.event_name == 'pull_request' && 'preview' || 'production' }})
-    needs: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    # PR dari fork tidak punya akses secrets, jadi dilewati.
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
-    permissions:
-      contents: read
-      pull-requests: write
-    environment:
-      name: ${{ github.event_name == 'pull_request' && 'preview' || 'production' }}
-      url: ${{ steps.deploy.outputs.url }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Check secrets
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_ORG_ID" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
-            echo "::error::Secrets VERCEL_TOKEN / VERCEL_ORG_ID / VERCEL_PROJECT_ID belum diisi. Lihat README.md."
-            exit 1
-          fi
-
-      - run: npm install --global vercel@latest
-
-      - name: Pull Vercel settings
-        run: vercel pull --yes --environment=${{ github.event_name == 'pull_request' && 'preview' || 'production' }} --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Build
-        run: vercel build ${{ github.event_name != 'pull_request' && '--prod' || '' }} --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Deploy
-        id: deploy
-        run: |
-          url=$(vercel deploy --prebuilt ${{ github.event_name != 'pull_request' && '--prod' || '' }} --token=${{ secrets.VERCEL_TOKEN }})
-          echo "url=$url" >> "$GITHUB_OUTPUT"
-          echo "Deployed: $url" >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Comment preview URL on PR
-        if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: `Preview deployed: ${{ steps.deploy.outputs.url }}`,
-            })
