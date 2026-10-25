@@ -31,7 +31,7 @@ export function About() {
   return (
     <section className="section section--soft" id="about">
       <div className="container">
-        <SectionHead eyebrow="What I do" title="Connecting people, and keeping those connections safe.">
+        <SectionHead eyebrow="About" title="Network operations, cyber security and cloud infrastructure.">
           {profile.summary} {profile.mission}
         </SectionHead>
         <div className="focus-grid">
@@ -64,7 +64,7 @@ export function Experience() {
   return (
     <section className="section" id="experience">
       <div className="container">
-        <SectionHead eyebrow="Experience" title="From blue team to the ISP backbone.">
+        <SectionHead eyebrow="Experience" title="Professional experience.">
           Banking, fintech, reinsurance and a Tier-1 ISP: each role sharpened how I secure, automate and operate
           critical infrastructure.
         </SectionHead>
@@ -162,7 +162,7 @@ export function Projects() {
   return (
     <section className="section section--soft" id="projects">
       <div className="container">
-        <SectionHead eyebrow="Selected work" title="Projects built for real operations.">
+        <SectionHead eyebrow="Projects" title="Selected projects.">
           Internal tools for network operations, systems that run a business day to day, and award-winning research.
           Confidential work is described without client data or source code.
         </SectionHead>
@@ -217,7 +217,7 @@ export function SkillsEducation() {
   return (
     <section className="section section--soft" id="skills">
       <div className="container">
-        <SectionHead eyebrow="Skills & education" title="The toolkit behind the work." />
+        <SectionHead eyebrow="Skills & education" title="Skills, education and organizations." />
         <div className="split">
           <Reveal className="panel">
             <h3>Skills</h3>
@@ -293,7 +293,7 @@ export function Contact() {
       <div className="container">
         <Reveal className="contact">
           <div>
-            <h2>Let’s build something reliable together.</h2>
+            <h2>Get in touch.</h2>
             <p>
               Open to conversations about network engineering, security and infrastructure roles, collaborations and
               projects. Based in {profile.location}.
