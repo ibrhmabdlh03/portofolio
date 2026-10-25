@@ -2,61 +2,6 @@ import { FiArrowRight, FiDownload, FiMail } from 'react-icons/fi'
 import { FaGithub, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
 import { profile } from '../data'
 
-// Topologi backbone sederhana: titik = router, garis putus-putus = trafik yang mengalir.
-const nodes = [
-  [90, 110],
-  [250, 70],
-  [420, 120],
-  [160, 260],
-  [330, 240],
-  [470, 300],
-  [110, 420],
-  [280, 400],
-  [440, 450],
-]
-const links = [
-  [0, 1],
-  [1, 2],
-  [0, 3],
-  [1, 4],
-  [2, 4],
-  [2, 5],
-  [3, 4],
-  [4, 5],
-  [3, 6],
-  [3, 7],
-  [4, 7],
-  [5, 8],
-  [7, 8],
-  [6, 7],
-]
-const flows = [
-  [0, 1],
-  [1, 4],
-  [4, 5],
-  [3, 7],
-  [7, 8],
-]
-
-function Topology() {
-  return (
-    <svg className="net" viewBox="0 0 560 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      {links.map(([a, b]) => (
-        <line key={`${a}-${b}`} className="link" x1={nodes[a][0]} y1={nodes[a][1]} x2={nodes[b][0]} y2={nodes[b][1]} />
-      ))}
-      {flows.map(([a, b]) => (
-        <line key={`f${a}-${b}`} className="flow" x1={nodes[a][0]} y1={nodes[a][1]} x2={nodes[b][0]} y2={nodes[b][1]} />
-      ))}
-      {nodes.map(([x, y], i) => (
-        <g key={i}>
-          <circle className="node-ring" cx={x} cy={y} r="16" />
-          <circle className="node" cx={x} cy={y} r="7" />
-        </g>
-      ))}
-    </svg>
-  )
-}
-
 export default function Hero() {
   return (
     <section className="hero" id="top">
@@ -104,7 +49,14 @@ export default function Hero() {
         </div>
 
         <div className="hero__visual">
-          <Topology />
+          <img
+            className="hero__photo"
+            src="/ibrahim.webp"
+            alt={`Portrait of ${profile.name}`}
+            width="900"
+            height="1200"
+            fetchPriority="high"
+          />
           <div className="float-card float-card--b">
             <small>Backbone SLA</small>
             <strong>99%</strong>
