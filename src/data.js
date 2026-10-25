@@ -3,7 +3,7 @@
 export const profile = {
   name: 'Ibrahim Abdullah Azzam',
   shortName: 'Ibrahim Azzam',
-  role: 'Network & Security Engineer',
+  role: 'Shift Leader — TAC Core Network',
   location: 'Jakarta, Indonesia',
   email: 'ibrahimabdlh23@gmail.com',
   phone: '+62 812-4994-6129',
@@ -17,13 +17,6 @@ export const profile = {
     'Telecommunication Engineering graduate from ITB focused on Cyber Security, Network Engineering and Cloud Infrastructure. Experienced in defensive operations, security assurance and offensive security labs, with hands-on work in network automation, SIEM implementation and cloud technologies.',
   mission: 'I want to be beneficial to my surroundings.',
 }
-
-export const stats = [
-  { value: '99%', label: 'SLA maintained on the ISP core backbone' },
-  { value: '2,400+', label: 'Enterprise clients served by the network I operate' },
-  { value: '10+', label: 'Applications secured with SAST/DAST before production' },
-  { value: '#3', label: 'Asia-Pacific, Huawei AI & IoT Competition 2025' },
-]
 
 export const focusAreas = [
   {
@@ -90,8 +83,8 @@ export const experience = [
     ],
   },
   {
-    company: 'Universitas Muhammadiyah Bandung',
-    companyNote: 'Develops websites and digital systems that optimize organizational performance.',
+    company: 'Confidential',
+    companyNote: 'Organization name withheld at the client’s request.',
     role: 'Full Stack Engineer',
     period: 'Jun 2024 — Oct 2025',
     mode: 'Remote',

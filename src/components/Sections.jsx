@@ -11,7 +11,6 @@ import {
   profile,
   projects,
   skills,
-  stats,
 } from '../data'
 import ProjectVisual from './ProjectVisual'
 import Reveal from './Reveal'
@@ -25,21 +24,6 @@ function SectionHead({ eyebrow, title, children }) {
       <h2>{title}</h2>
       {children && <p>{children}</p>}
     </Reveal>
-  )
-}
-
-export function Stats() {
-  return (
-    <div className="container">
-      <Reveal className="stats">
-        {stats.map((s) => (
-          <div className="stat" key={s.label}>
-            <strong>{s.value}</strong>
-            <span>{s.label}</span>
-          </div>
-        ))}
-      </Reveal>
-    </div>
   )
 }
 

@@ -9,14 +9,15 @@ export default function Hero() {
         <div>
           <span className="hero__badge">
             <span className="pulse" />
-            Network Engineer — TAC Core at Lintasarta
+            Shift Leader — TAC Core Network at Lintasarta
           </span>
           <h1>
-            Keeping networks <span className="accent">up, fast</span> and secure.
+            Ibrahim Abdullah <span className="accent">Azzam</span>
           </h1>
           <p className="hero__lead">
-            I’m {profile.name}, a {profile.role.toLowerCase()} from ITB. I lead core-backbone operations for a Tier-1
-            ISP and build security, cloud and software systems that businesses can rely on.
+            Shift Leader of the TAC Core Network team at Lintasarta, leading the operations, troubleshooting and
+            routing integrity of a Tier-1 ISP backbone. Telecommunication Engineering graduate from ITB with a strong
+            interest in cyber security and cloud infrastructure.
           </p>
           <div className="hero__actions">
             <a href="#projects" className="btn btn--primary">
@@ -53,21 +54,10 @@ export default function Hero() {
             className="hero__photo"
             src="/ibrahim.webp"
             alt={`Portrait of ${profile.name}`}
-            width="900"
+            width="960"
             height="1200"
             fetchPriority="high"
           />
-          <div className="float-card float-card--b">
-            <small>Backbone SLA</small>
-            <strong>99%</strong>
-          </div>
-          <div className="float-card float-card--c">
-            <span className="status-dot" /> BGP · MPLS · IS-IS
-          </div>
-          <div className="float-card float-card--a">
-            <small>MTTR target</small>
-            <strong>≤ 4 hours</strong>
-          </div>
         </div>
       </div>
     </section>

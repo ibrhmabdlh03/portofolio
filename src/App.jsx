@@ -8,7 +8,6 @@ import {
   Projects,
   Recognition,
   SkillsEducation,
-  Stats,
 } from './components/Sections'
 
 export default function App() {
@@ -17,8 +16,6 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <Stats />
-        <div style={{ height: 'clamp(64px, 8vw, 104px)' }} />
         <About />
         <Experience />
         <Projects />
