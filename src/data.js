@@ -125,7 +125,7 @@ export const projects = [
   {
     title: 'System Anomaly Forecasting — Metricbeat & Machine Learning',
     year: '2025',
-    category: 'IT Automation Internship · Alto Network (Djarum Group)',
+    category: 'IT Automation Internship · Alto Network',
     visual: 'forecast',
     text: 'Proof of Concept that collects system metrics with Metricbeat and applies Machine Learning to forecast anomalies before they impact payment services such as ATM switching and QRIS.',
     highlights: [
@@ -137,7 +137,7 @@ export const projects = [
   {
     title: 'SIEM Monitoring & Threat Detection — IBM QRadar',
     year: '2024',
-    category: 'Security Engineering Internship (Blue Team) · PT Reasuransi Indonesia Utama (Persero)',
+    category: 'Blue Team Internship · Indonesia Re',
     visual: 'siem',
     text: 'Monitored SIEM alerts and handled incident response for a state-owned reinsurer, while tuning IBM QRadar policies to improve threat detection and correlation accuracy.',
     highlights: [
