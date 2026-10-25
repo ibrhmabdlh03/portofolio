@@ -9,7 +9,7 @@ export const profile = {
   phone: '+62 812-4994-6129',
   phoneHref: 'tel:+6281249946129',
   whatsapp: 'https://wa.me/6281249946129',
-  linkedin: 'https://www.linkedin.com/in/ibrhmabdlh',
+  linkedin: 'https://www.linkedin.com/in/ibrahimabdlh/',
   github: 'https://github.com/ibrhmabdlh03',
   // Isi dengan '/nama-file.pdf' (taruh di folder public/) untuk menampilkan tombol "Download CV".
   resume: '',
