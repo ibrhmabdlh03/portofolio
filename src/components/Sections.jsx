@@ -66,8 +66,8 @@ export function Experience() {
     <section className="section" id="experience">
       <div className="container">
         <SectionHead eyebrow="Experience" title="Professional experience.">
-          Banking, fintech, reinsurance and a Tier-1 ISP: each role sharpened how I secure, automate and operate
-          critical infrastructure.
+          Core network operations at a Tier-1 ISP, security assurance in banking, and full-stack engineering.
+          Internship work in IT automation and blue-team security is listed under Projects.
         </SectionHead>
         <div className="timeline">
           {experience.map((job) => (

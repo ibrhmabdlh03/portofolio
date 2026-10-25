@@ -127,6 +127,37 @@ function Siem() {
   )
 }
 
+function Forecast() {
+  const pts = [210, 200, 214, 190, 205, 180, 196, 170, 186, 120, 178, 168]
+  const line = pts.map((y, i) => `${48 + i * 44},${y}`).join(' ')
+  return (
+    <Frame from="#0b1a24" to="#1b2fb8">
+      {[0, 1, 2, 3].map((i) => (
+        <line key={i} x1="40" x2="600" y1={90 + i * 60} y2={90 + i * 60} stroke="#fff" opacity="0.08" />
+      ))}
+      <rect x="400" y="60" width="200" height="240" fill="#5aa9ff" opacity="0.12" />
+      <polyline points={line} fill="none" stroke="#5aa9ff" strokeWidth="4" strokeLinejoin="round" />
+      <polyline points="444,178 488,172 532,166 576,160 600,156" fill="none" stroke="#fff" strokeWidth="3" strokeDasharray="8 8" />
+      <circle cx={48 + 9 * 44} cy="120" r="10" fill="#ff6b6b" />
+      <circle cx={48 + 9 * 44} cy="120" r="20" fill="none" stroke="#ff6b6b" strokeWidth="2" opacity="0.6" />
+    </Frame>
+  )
+}
+
+function Shield() {
+  return (
+    <Frame from="#14532d" to="#0b1a24">
+      <rect x="60" y="120" width="170" height="120" rx="14" fill="#fff" opacity="0.92" />
+      {[0, 1, 2].map((i) => (
+        <rect key={i} x="80" y={142 + i * 28} width="130" height="12" rx="6" fill="#14532d" opacity={0.25 + i * 0.15} />
+      ))}
+      <line x1="230" y1="180" x2="400" y2="180" stroke="#fff" strokeWidth="3" strokeDasharray="8 8" />
+      <path d="M480 90l80 30v60c0 52-36 88-80 104-44-16-80-52-80-104v-60z" fill="#fff" opacity="0.95" />
+      <path d="M446 186l24 24 46-50" stroke="#31a24c" strokeWidth="11" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+    </Frame>
+  )
+}
+
 function Research() {
   const cars = [
     [110, 110],
@@ -206,7 +237,7 @@ function MathSim() {
   )
 }
 
-const visuals = { sla: Sla, erp: Erp, iot: Iot, siem: Siem, research: Research, web3: Web3, math: MathSim }
+const visuals = { forecast: Forecast, shield: Shield, sla: Sla, erp: Erp, iot: Iot, siem: Siem, research: Research, web3: Web3, math: MathSim }
 
 export default function ProjectVisual({ type }) {
   const Visual = visuals[type] ?? Siem

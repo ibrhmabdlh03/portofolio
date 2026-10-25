@@ -71,17 +71,6 @@ export const experience = [
     ],
   },
   {
-    company: 'Alto Network (Djarum Group)',
-    companyNote: 'Fintech providing banking and payment solutions such as ATM switching and QRIS.',
-    role: 'IT Automation Intern',
-    period: 'Oct 2025 — Dec 2025',
-    mode: 'Hybrid',
-    points: [
-      'Built a Proof of Concept using Metricbeat and Machine Learning to forecast system anomalies.',
-      'Benchmarked algorithms against external solutions and presented technical evaluations to stakeholders.',
-    ],
-  },
-  {
     company: 'Confidential',
     companyNote: 'Organization name withheld at the client’s request.',
     role: 'Full Stack Engineer',
@@ -91,18 +80,6 @@ export const experience = [
       'Developed 4 full-stack web applications from database modeling to front-end deployment, and maintained 5 existing platforms.',
       'Worked with stakeholders to streamline business processes and translate requirements into technical systems.',
       'Designed and implemented database schemas for scalable, efficient application performance.',
-    ],
-  },
-  {
-    company: 'PT Reasuransi Indonesia Utama (Persero)',
-    companyNote: 'State-owned national reinsurer.',
-    role: 'Security Engineer Intern (Blue Team)',
-    period: 'Apr 2024 — Jun 2024',
-    mode: 'On-site',
-    points: [
-      'Monitored SIEM alerts and performed incident response while tuning IBM QRadar policies for better detection and correlation accuracy.',
-      'Benchmarked security tools with the Head of IT and senior engineers, providing data-driven input for enterprise adoption.',
-      'Provided technical support for network-related security issues for 250+ users.',
     ],
   },
 ]
@@ -146,10 +123,34 @@ export const projects = [
     stack: ['IoT', 'Huawei Cloud', 'Web platform'],
   },
   {
+    title: 'System Anomaly Forecasting — Metricbeat & Machine Learning',
+    year: '2025',
+    category: 'IT Automation Internship · Alto Network (Djarum Group)',
+    visual: 'forecast',
+    text: 'Proof of Concept that collects system metrics with Metricbeat and applies Machine Learning to forecast anomalies before they impact payment services such as ATM switching and QRIS.',
+    highlights: [
+      'Benchmarked forecasting algorithms against external solutions',
+      'Presented technical evaluations and recommendations to stakeholders',
+    ],
+    stack: ['Metricbeat', 'Elastic', 'Python', 'Machine Learning'],
+  },
+  {
+    title: 'SIEM Monitoring & Threat Detection — IBM QRadar',
+    year: '2024',
+    category: 'Security Engineering Internship (Blue Team) · PT Reasuransi Indonesia Utama (Persero)',
+    visual: 'siem',
+    text: 'Monitored SIEM alerts and handled incident response for a state-owned reinsurer, while tuning IBM QRadar policies to improve threat detection and correlation accuracy.',
+    highlights: [
+      'Benchmarked security tools with the Head of IT and senior engineers for enterprise adoption',
+      'Supported network-related security issues for 250+ users',
+    ],
+    stack: ['IBM QRadar', 'SIEM', 'Incident Response'],
+  },
+  {
     title: 'SIEM Integration — Wazuh & pfSense',
     year: '2024',
     category: 'Cyber Security',
-    visual: 'siem',
+    visual: 'shield',
     text: 'Integrated Wazuh SIEM with a pfSense firewall on on-premises servers to monitor and detect network threats. End-to-end setup from scratch to enable log analysis and proactive threat management.',
     stack: ['Wazuh', 'pfSense', 'Linux'],
   },
