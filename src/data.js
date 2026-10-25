@@ -28,7 +28,7 @@ export const focusAreas = [
   {
     key: 'security',
     title: 'Cyber Security',
-    text: 'Blue-team monitoring and incident response, SIEM tuning, system hardening, vulnerability management and SAST/DAST for applications.',
+    text: 'Blue-team monitoring and incident response, SIEM tuning, system hardening and vulnerability management.',
     tags: ['QRadar', 'Wazuh', 'pfSense', 'Burp Suite', 'CyberOps'],
   },
   {
@@ -67,7 +67,6 @@ export const experience = [
     mode: 'On-site',
     points: [
       'Executed system hardening and vulnerability management to identify and mitigate infrastructure security risks.',
-      'Ran SAST/DAST scans on internal monitoring tools and automation scripts, securing 10+ applications before production.',
       'Analyzed and optimized security toolsets while handling both vulnerability management and process re-engineering.',
     ],
   },
@@ -185,22 +184,38 @@ export const awards = [
   { place: '1st Place', title: 'National AI & IoT Competition 2024', org: 'Huawei · Indonesia' },
 ]
 
-export const certifications = [
+export const certification = {
+  name: 'Cisco Certified Network Associate (CCNA)',
+  issuer: 'Cisco',
+  text: 'Industry certification validating network fundamentals, IP connectivity and services, routing and switching, security fundamentals, automation and programmability.',
+}
+
+// Program pelatihan resmi: materi kursus dan ujian akhir kursus telah diselesaikan (bukan ujian sertifikasi).
+export const training = [
   {
-    group: 'Network',
-    items: ['CCNA — Enterprise Networking, Security & Automation', 'CCNA — Switching, Routing & Wireless Essentials'],
+    issuer: 'Cisco Networking Academy',
+    items: ['CyberOps Associate'],
   },
-  { group: 'Security', items: ['Cisco CyberOps Associate', 'ISC2'] },
   {
-    group: 'Cloud & Administration',
+    issuer: 'ISC2',
+    items: ['Cybersecurity training program'],
+  },
+  {
+    issuer: 'Red Hat Academy',
     items: [
-      'Red Hat System Administration I & II',
-      'Red Hat OpenShift Administration I (Containers & Kubernetes)',
-      'AWS Academy — Cloud Foundations',
-      'AWS Academy — Architecting on AWS',
+      'Red Hat System Administration I',
+      'Red Hat System Administration II',
+      'Red Hat OpenShift Administration I — Containers & Kubernetes',
     ],
   },
-  { group: 'Data Science', items: ['Kaggle — Data Analyst', 'Kaggle — Machine Learning'] },
+  {
+    issuer: 'AWS Academy',
+    items: ['Cloud Foundations', 'Cloud Architecting'],
+  },
+  {
+    issuer: 'Kaggle',
+    items: ['Data Analysis', 'Machine Learning'],
+  },
 ]
 
 export const skills = [

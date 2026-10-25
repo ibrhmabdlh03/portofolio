@@ -822,42 +822,127 @@ ul {
   opacity: 0.8;
 }
 
-.cert-grid {
+.cert-main {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(24px, 4vw, 40px);
+  margin-bottom: 56px;
+}
+
+.cert-main__badge {
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  place-items: center;
+  font-size: 36px;
+  color: #fff;
+  background: linear-gradient(135deg, #1ba0d7, #005073);
+}
+
+.cert-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #e6f4ea;
+  color: #1e7a36;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.cert-main h3 {
+  margin-top: 12px;
+  font-size: clamp(22px, 2.6vw, 30px);
+  letter-spacing: -0.01em;
+}
+
+.cert-main__issuer {
+  margin-top: 4px;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.cert-main p:last-child {
+  margin-top: 12px;
+  color: var(--ink-2);
+  max-width: 720px;
+}
+
+.training-head {
+  margin-bottom: 24px;
+}
+
+.training-head h3 {
+  font-size: 26px;
+  letter-spacing: -0.01em;
+}
+
+.training-head p {
+  margin-top: 6px;
+  color: var(--ink-2);
+}
+
+@media (max-width: 560px) {
+  .cert-main {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.cert-grid {
+  border-top: 1px solid var(--line);
 }
 
 .cert {
-  background: var(--bg-soft);
-  border-radius: var(--radius);
-  padding: 24px;
+  display: grid;
+  grid-template-columns: 260px 1fr auto;
+  gap: 8px 32px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
 }
 
 .cert h4 {
-  font-size: 14px;
+  font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--blue);
-  margin-bottom: 14px;
+}
+
+.cert ul {
+  display: grid;
+  gap: 6px;
 }
 
 .cert li {
-  padding: 10px 0;
-  border-top: 1px solid var(--line);
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 600;
 }
 
-@media (max-width: 1000px) {
-  .cert-grid {
-    grid-template-columns: 1fr 1fr;
+.cert-done {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .cert {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 640px) {
-  .awards,
-  .cert-grid {
+  .awards {
     grid-template-columns: 1fr;
   }
 

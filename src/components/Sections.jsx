@@ -1,9 +1,9 @@
 import { FiCheck, FiCloud, FiCode, FiExternalLink, FiLock, FiMail, FiPhone, FiShield } from 'react-icons/fi'
 import { FaGithub, FaLinkedinIn, FaTrophy, FaWhatsapp } from 'react-icons/fa'
-import { TbAward, TbNetwork } from 'react-icons/tb'
+import { TbAward, TbCertificate, TbNetwork } from 'react-icons/tb'
 import {
   awards,
-  certifications,
+  certification,
   education,
   experience,
   focusAreas,
@@ -11,6 +11,7 @@ import {
   profile,
   projects,
   skills,
+  training,
 } from '../data'
 import ProjectVisual from './ProjectVisual'
 import Reveal from './Reveal'
@@ -181,7 +182,7 @@ export function Recognition() {
     <section className="section" id="recognition">
       <div className="container">
         <SectionHead eyebrow="Recognition" title="Awards and certifications.">
-          Competing regionally with Huawei, and certified across networking, security, Linux and cloud.
+          Regional competition results, industry certification and completed professional training across networking, security, Linux, cloud and data.
         </SectionHead>
         <div className="awards">
           {awards.map((a) => (
@@ -193,18 +194,35 @@ export function Recognition() {
             </Reveal>
           ))}
         </div>
+        <Reveal className="cert-main">
+          <div className="cert-main__badge">
+            <TbCertificate />
+          </div>
+          <div>
+            <span className="cert-status">
+              <FiCheck size={14} /> Certified
+            </span>
+            <h3>{certification.name}</h3>
+            <p className="cert-main__issuer">Issued by {certification.issuer}</p>
+            <p>{certification.text}</p>
+          </div>
+        </Reveal>
+        <Reveal className="training-head">
+          <h3>Professional training</h3>
+          <p>Official programs completed in full, including all coursework and final course examinations.</p>
+        </Reveal>
         <div className="cert-grid">
-          {certifications.map((c) => (
-            <Reveal className="cert" key={c.group}>
-              <h4>
-                <TbAward style={{ display: 'inline', verticalAlign: '-3px', marginRight: 6 }} />
-                {c.group}
-              </h4>
+          {training.map((t) => (
+            <Reveal className="cert" key={t.issuer}>
+              <h4>{t.issuer}</h4>
               <ul>
-                {c.items.map((i) => (
+                {t.items.map((i) => (
                   <li key={i}>{i}</li>
                 ))}
               </ul>
+              <span className="cert-done">
+                <TbAward /> Course &amp; exam completed
+              </span>
             </Reveal>
           ))}
         </div>
